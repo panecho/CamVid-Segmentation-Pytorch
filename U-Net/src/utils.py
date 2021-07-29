@@ -63,7 +63,7 @@ def rgb_to_mask(img, color_map):
     shape = img.shape[:2]+(num_classes,)
     out = np.zeros(shape, dtype=np.float64)
     for i, cls in enumerate(color_map):
-        out[:,:,i] = np.all(np.array(img).reshape( (-1,3) ) == color_map[i], axis=1).reshape(shape[:2])
+        out[:,:,i] = np.all(np.array(img).reshape( (-1,3) ) == i, axis=1).reshape(shape[:2])
     return out.transpose(2,0,1)
 
 def mask_to_rgb(mask, color_map):
